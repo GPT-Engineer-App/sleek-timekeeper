@@ -26,10 +26,10 @@ const Index = () => {
     >
       <VStack spacing={4}>
         <Text fontSize={{ base: "6xl", md: "9xl" }} fontFamily="monospace">
-          {time.toLocaleTimeString()}
+          {time.toLocaleTimeString('sv-SE', { hour12: false })}
         </Text>
         <Text fontSize={{ base: "md", md: "xl" }}>
-          {time.toLocaleDateString()}
+          {time.toLocaleDateString('sv-SE', { year: 'numeric', month: '2-digit', day: '2-digit' })}
         </Text>
       </VStack>
     </Container>

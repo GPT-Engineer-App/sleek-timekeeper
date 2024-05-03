@@ -15,13 +15,14 @@ const Index = () => {
   return (
     <Container
       centerContent
-      maxW="container.xl"
+      maxW="100vw"
       height="100vh"
       display="flex"
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
-      bg="gray.900"
+      padding="0"
+      bg="gray.800"
       color="white"
     >
       <VStack spacing={4}>

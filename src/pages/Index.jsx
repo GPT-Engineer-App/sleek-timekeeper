@@ -2,11 +2,13 @@ import { Container, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 const Index = () => {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState(new Date().toLocaleTimeString('sv-SE', { hour12: false }));
+  const [date, setDate] = useState(new Date().toLocaleDateString('sv-SE', { year: 'numeric', month: '2-digit', day: '2-digit' }));
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTime(new Date());
+      setTime(new Date().toLocaleTimeString('sv-SE', { hour12: false }));
+      setDate(new Date().toLocaleDateString('sv-SE', { year: 'numeric', month: '2-digit', day: '2-digit' }));
     }, 1000);
 
     return () => clearInterval(timer);
@@ -30,7 +32,7 @@ const Index = () => {
           {time.toLocaleTimeString()}
         </Text>
         <Text fontSize={{ base: "md", md: "xl" }}>
-          {time.toLocaleDateString()}
+          {date}
         </Text>
       </VStack>
     </Container>

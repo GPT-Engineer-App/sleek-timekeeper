@@ -1,25 +1,36 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
 import { Container, Text, VStack } from "@chakra-ui/react";
-
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+import { useEffect, useState } from "react";
 
 const Index = () => {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <Container
       centerContent
-      maxW="container.md" // Container width
-      height="100vh" // Full viewport height
+      maxW="container.xl"
+      height="100vh"
       display="flex"
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
+      bg="gray.900"
+      color="white"
     >
       <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
+        <Text fontSize={{ base: "6xl", md: "9xl" }} fontFamily="monospace">
+          {time.toLocaleTimeString()}
+        </Text>
+        <Text fontSize={{ base: "md", md: "xl" }}>
+          {time.toLocaleDateString()}
+        </Text>
       </VStack>
     </Container>
   );
